@@ -2,35 +2,38 @@ name: build
 on:
   workflow_dispatch:
     inputs:
-      specify branch:
+      branch:
         required: true
         default: master
-        desciption: "specify branch"
-  
+        description: "specify branch"
+        
 jobs:
   build:
-    name: build
     runs-on: [ubuntu-latest]
-    
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: building
-        run: echo "running build"
-      - name: done
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name:  building
+        run: echo "buildin application"
+        
+        
+      - name: done build
         run: echo "done with build"
-
+        
   deploy:
     needs: build
     runs-on: [ubuntu-latest]
-    
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - id: deploy
-        run: echo "deploy"
-      - name: done
-        if: github.event.deploy == 'success'
-        run: echo "done with job"
+      - name: deploy to cloud
+        run: echo "deploying"
+      - id: deploment-result
+        run: echo "success"
+      - name: deploy job
+        if: github.event.deploy-result == "success"
+        run: echo "successfully completed cicd"
+        
+    
+       
+      
+        
