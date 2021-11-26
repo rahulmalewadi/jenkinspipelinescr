@@ -1,0 +1,36 @@
+name: build
+on:
+  workflow_dispatch:
+    inputs:
+      specify branch:
+        required: true
+        default: master
+        desciption: "specify branch"
+  
+jobs:
+  build:
+    name: build
+    runs-on: [ubuntu-latest]
+    
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: building
+        run: echo "running build"
+      - name: done
+        run: echo "done with build"
+
+  deploy:
+    name: deploy
+    runs-on: [ubuntu-latest]
+    
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - id: deploy
+        run: echo "deploy"
+      - name: done
+        if: github.event.deploy == 'success'
+        run: echo "done with job"
