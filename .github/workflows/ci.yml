@@ -30,7 +30,7 @@ jobs:
       - id: deploment-result
         run: echo "success"
       - name: deploy job
-        if: github.event.deploy-result.outcome == 'success'
+        if: steps.deploy-result.outcome == 'success'
         run: echo "successfully completed cicd"
         
     
