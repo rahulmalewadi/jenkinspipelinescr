@@ -17,7 +17,9 @@ jobs:
         run: echo ${{github.event.inputs.branch}}
         
       - name:  building
-        run: echo "buildin application"
+        run: |
+          echo "buildin application"
+           echo ${{ github.workspace }}
         
         
       - name: done build
