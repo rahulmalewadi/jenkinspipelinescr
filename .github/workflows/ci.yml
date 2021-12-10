@@ -4,8 +4,10 @@ on:
     inputs:
       branch:
         required: true
-        default: master
+        default: $GITHUB_REF_NAME
         description: "specify branch"
+  push:
+    branches: [tst]
         
 jobs:
   build:
