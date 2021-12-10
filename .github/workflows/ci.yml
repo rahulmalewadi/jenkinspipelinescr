@@ -4,8 +4,10 @@ on:
     inputs:
       branch:
         required: true
-        default: master
+        default: dev
         description: "specify branch"
+  push:
+    branches: [dev] 
         
 jobs:
   build:
