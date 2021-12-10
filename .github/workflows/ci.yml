@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "buildin application"
            echo ${{ github.workspace }}
-           echo ${{ GITHUB_REPOSITORY }}
+           echo  GITHUB_REPOSITORY 
         
         
       - name: done build
