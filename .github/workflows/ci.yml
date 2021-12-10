@@ -7,7 +7,7 @@ on:
         default: $GITHUB_REF_NAME
         description: "specify branch"
   push:
-    branches: [dev] 
+    branches: [PROD] 
         
 jobs:
   build:
