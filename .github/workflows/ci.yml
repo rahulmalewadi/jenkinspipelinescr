@@ -4,7 +4,7 @@ on:
     inputs:
       branch:
         required: true
-        default: $GITHUB_REF_NAME
+        default: dev
         description: "specify branch"
   push:
     branches: [PROD] 
