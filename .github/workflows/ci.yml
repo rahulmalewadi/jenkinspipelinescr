@@ -40,7 +40,7 @@ jobs:
         if: ${{steps.deploy-result.outcome}} == 'success'
         run: echo "successfully completed cicd"
       - name: run branch
-        if: $GITHUB_REF_NAME == dev
+        if: ${GITHUB_REF_NAME} == dev
         run: echo "this is rahul"
         
     
