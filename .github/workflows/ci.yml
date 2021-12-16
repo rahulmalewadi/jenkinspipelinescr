@@ -39,18 +39,9 @@ jobs:
       - name: deploy job
         if: ${{steps.deploy-result.outcome}} == 'success'
         run: echo "successfully completed cicd"
-      - name: Extract branch name
-        if: github.event_name != 'pull_request'
-        shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      # extract branch name on pull request
-      - name: Print branch name
-        if: github.event_name == 'pull_request'
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
-      - if: ${{ steps.extract_branch.outputs.BRANCH_NAME }} == 'devd'
-        run:  echo "we r done"
+      - name: rb
+        if: ${{github.event.inputs.branch}} == 'prod'
+        run: echo "this is prod"
        
         
     
