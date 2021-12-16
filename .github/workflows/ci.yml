@@ -4,7 +4,7 @@ on:
     inputs:
       branch:
         required: true
-        #default: $GITHUB_REF_NAME
+        default: $GITHUB_REF_NAME
         description: "specify branch"
   push:
     branches: [dev] 
@@ -40,7 +40,7 @@ jobs:
         if: ${{steps.deploy-result.outcome}} == 'success'
         run: echo "successfully completed cicd"
       - name: rb
-        if: ${{github.event.inputs.branch}} == 'prod'
+        if: github.ref == 'refs/heads/master'
         run: echo "this is prod"
        
         
