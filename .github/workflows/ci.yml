@@ -45,7 +45,7 @@ jobs:
         id: extract_branch
       
       - name: run branch
-        if: ${{ steps.extract_branch.outputs.branch }} == 'prod'
+        if: eng:${{ steps.extract_branch.outputs.branch }} == 'prod'
         run: echo "this is rahul"
         
     
