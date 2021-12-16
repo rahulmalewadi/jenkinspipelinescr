@@ -3,6 +3,31 @@ on:
   workflow_dispatch:
     inputs:
       branch:
+        description:  specify Branch name
+        required: true
+        default: develop
+
+      Manifest-file:
+        description: "specify manifest file for the environment"
+        default: 'manifest-dev.yml'
+      
+      foundation:
+        description: "PCF Foundation Name (CAC OR CAE)"
+        default: 'CAC'
+      
+      pcforg:
+        description: "PCF Organization Name"
+        default: 'CDN-CAC-DEV'
+      
+      pcfspace:
+        description: "PCF Space Name"
+        default: 'GRS-WEB-CAC-DEV'
+      
+      springbootprofile:
+        description: "Provide Spring Boot Active Profile"
+        default: 'dev'
+    inputs:
+      branch:
         required: true
         default: master
         description: "specify branch"
