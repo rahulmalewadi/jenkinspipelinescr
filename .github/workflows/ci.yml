@@ -44,8 +44,9 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
       
-      - name: run branch
-        if: eng:${{ steps.extract_branch.outputs.branch }} == 'prod'
+  
+      - if: ${{ steps.extract_branch.outputs.branch }} == 'prod'
+        name: branching
         run: echo "this is rahul"
         
     
