@@ -4,7 +4,7 @@ on:
     inputs:
       branch:
         required: true
-        default: $GITHUB_REF_NAME
+        #default: $GITHUB_REF_NAME
         description: "specify branch"
   push:
     branches: [dev] 
