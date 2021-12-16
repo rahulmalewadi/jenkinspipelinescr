@@ -39,8 +39,13 @@ jobs:
       - name: deploy job
         if: ${{steps.deploy-result.outcome}} == 'success'
         run: echo "successfully completed cicd"
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      
       - name: run branch
-        if: ${{GITHUB_REF_NAME}} == dev
+        if: ${{ steps.extract_branch.outputs.branch }} == dev
         run: echo "this is rahul"
         
     
