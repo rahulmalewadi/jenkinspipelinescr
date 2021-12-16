@@ -40,7 +40,7 @@ jobs:
         if: ${{steps.deploy-result.outcome}} == 'success'
         run: echo "successfully completed cicd"
       - name: rb
-        if: github.ref == 'refs/heads/dev'
+        if: github.ref == 'refs/heads/dev*'
         run: echo "this is prod"
        
         
