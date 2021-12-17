@@ -26,11 +26,7 @@ on:
       springbootprofile:
         description: "Provide Spring Boot Active Profile"
         default: 'dev'
-    inputs:
-      branch:
-        required: true
-        default: master
-        description: "specify branch"
+    
         
 jobs:
   build:
